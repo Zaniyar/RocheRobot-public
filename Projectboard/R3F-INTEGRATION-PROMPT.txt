@@ -1,0 +1,26 @@
+Integriere unseren vorhandenen G1 mit Laufpolicy in die bestehende React-Three-Fiber-Szene. Nutze den vorhandenen Canvas und dessen Kamera; kein zweiter Renderer und kein iframe.
+
+Umfang: ausschließlich Roboter, Physik, Laufpolicy und die zugehörigen Bedienelemente als wiederverwendbare R3F-Komponente. Das bestehende Projektboard mit Navigation, Seiten, Texten, Videos und Roche-Labor bleibt außerhalb der Zielapp. Übernimm keine index.html, app.js, data.js oder Board-Styles. Die Gestaltung und Navigation der bestehenden Zielapp bleiben erhalten.
+
+Öffentliches Repository:
+https://github.com/Zaniyar/RocheRobot-public
+
+Robotermodell (MJCF, kein GLB):
+https://github.com/Zaniyar/RocheRobot-public/blob/main/Projectboard/dist/policy/g1.xml
+Meshes, config.json und Lizenzen im selben Verzeichnis:
+https://github.com/Zaniyar/RocheRobot-public/tree/main/Projectboard/dist/policy
+Fertige Laufpolicy:
+https://github.com/Zaniyar/RocheRobot-public/blob/main/Projectboard/dist/policy/policy.onnx
+
+Physik-/Inferenz-Worker:
+https://github.com/Zaniyar/RocheRobot-public/blob/main/Projectboard/three/policy-worker.js
+Bestehende Three.js-Referenz inklusive Klick-Schubsen:
+https://github.com/Zaniyar/RocheRobot-public/blob/main/Projectboard/three/policy-browser.js
+
+Übernimm MuJoCo-WASM und ONNX Runtime Web samt Assets aus Projectboard/dist/vendor und die relative Ordnerstruktur policy-lab/, policy/, vendor/. Lade alles von derselben Origin der Zielapp; GitHub-blob-Links sind Quellverweise, keine direkt ladbaren Asset-URLs. Das Repository klonen; keine Tokens ins Frontend schreiben.
+
+Der Worker besitzt Physik und Steuerung. Er liefert bei ready Geometrien mit geom-ID/bodyId und bei state Positionen/Rotationsmatrizen. Daraus R3F-Meshes erstellen und deren Matrizen aktualisieren. 37 Gelenke, 123 Beobachtungen, 37 Aktionen; Joint-Reihenfolge, Standardpose, PD-Regler und Zeitschritte unverändert übernehmen. Physik 200 Hz, Policy 50 Hz. MuJoCo nutzt Z-up: Renderkoordinaten UND Klickpunkt/-richtung korrekt zur bestehenden Szene umrechnen.
+
+Richtungssteuerung, Pause/Reset und Klick-Schubsen übernehmen: Kraft am getroffenen bodyId/Trefferpunkt entlang des Kamera-Maus-Strahls; Ziehen dreht nur die Kamera. Worker, Listener und GPU-Ressourcen beim Unmount aufräumen, React StrictMode berücksichtigen. Bestehende Szenenobjekte kollidieren erst nach expliziter Aufnahme in das MuJoCo-Modell; reine R3F-Meshes erzeugen keine Physikkontakte.
+
+Ergebnis in der Zielapp testen: Laden, Laufen, Steuerung, Pause/Reset und Klick vs. Kameraziehen. Kein neues Training, keine Gewichtsänderung. Dies ist die browserlokale RL-Laufdemo, kein VLA-Greifmodell und keine Isaac-Sim-Ausführung. Vor öffentlicher Weiterverteilung die bestehenden Lizenzhinweise in policy/NOTICE.txt beachten.

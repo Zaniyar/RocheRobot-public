@@ -1,0 +1,9 @@
+{
+  "name": "robotics-meets-xr-browser-policy",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {"build": "node build-policy.mjs"},
+  "dependencies": {"@mujoco/mujoco": "3.15.0", "onnxruntime-web": "1.23.0", "three": "0.180.0"},
+  "devDependencies": {"esbuild": "0.25.12"}
+}

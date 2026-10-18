@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url)),dist=path.resolve(here,'../dist');
+const mods=process.env.ROBOT_3D_NODE_MODULES||path.join(here,'node_modules');
+const {build}=await import(pathToFileURL(path.join(mods,'esbuild/lib/main.js')));
+await fs.mkdir(path.join(dist,'vendor/mujoco'),{recursive:true});await fs.mkdir(path.join(dist,'vendor/ort'),{recursive:true});
+for(const name of ['mujoco.js','mujoco.wasm'])await fs.copyFile(path.join(mods,'@mujoco/mujoco',name),path.join(dist,'vendor/mujoco',name));
+for(const name of ['ort.wasm.min.mjs','ort-wasm-simd-threaded.mjs','ort-wasm-simd-threaded.wasm'])await fs.copyFile(path.join(mods,'onnxruntime-web/dist',name),path.join(dist,'vendor/ort',name));
+await fs.copyFile(path.join(here,'policy-worker.js'),path.join(dist,'policy-lab/policy-worker.js'));
+await build({entryPoints:[path.join(here,'policy-browser.js')],bundle:true,format:'esm',target:['es2022'],nodePaths:[mods],outfile:path.join(dist,'policy-lab/policy-browser.js'),minify:true,legalComments:'eof'});
+console.log('Browser policy runtime built with local WASM/ONNX assets.');

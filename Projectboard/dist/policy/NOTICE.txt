@@ -1,0 +1,30 @@
+RocheRobot browser policy demo — 11 October 2026
+
+Policy: NVIDIA Isaac Lab published Isaac-Velocity-Flat-G1-v0 checkpoint,
+exported unchanged to ONNX by IsaacLab v2.3.2 official play.py.
+Checkpoint SHA256: fdf0f242bb8f3bcfc1aa9b7ff2761af4c014cf1cdc7e49242c9b92f3581720e7
+Source: https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1/Isaac/IsaacLab/PretrainedCheckpoints/rsl_rl/Isaac-Velocity-Flat-G1-v0/checkpoint.pt
+Isaac Lab code: https://github.com/isaac-sim/IsaacLab/tree/v2.3.2 (BSD-3-Clause).
+The checkpoint download contains no embedded license file. Its availability is not itself a redistribution license; applicable NVIDIA model terms remain to be confirmed for hosted distribution.
+
+Robot MJCF and STL meshes: Unitree Robotics, kinect_teleoperate,
+commit c520506d44dceeea3391b924fe1876d092a42e22, src/unitree_g1/.
+https://github.com/unitreerobotics/kinect_teleoperate
+BSD-3-Clause. Full license in LICENSE-Unitree.txt.
+Adaptations: free base, ground, Isaac joint ordering, default posture,
+PD gains/effort limits/armatures, no self-collisions, 0.005 s timestep.
+This is a MuJoCo transfer, not the Isaac Sim/PhysX engine itself.
+
+MuJoCo 3.15.0 WASM: Google DeepMind, Apache-2.0.
+https://github.com/google-deepmind/mujoco
+ONNX Runtime Web 1.23.0: Microsoft, MIT.
+https://github.com/microsoft/onnxruntime
+Three.js 0.180.0: three.js authors, MIT.
+https://github.com/mrdoob/three.js
+
+Architecture references (not copied implementations):
+https://github.com/wbc-mjlab/wbc-demo
+https://huggingface.co/spaces/exptech/g1-moves
+
+No Roche CAD, credentials, or robot hardware endpoints are included.
+Local preview verified separately; hosted availability is not implied.
