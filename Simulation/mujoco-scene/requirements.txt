@@ -1,0 +1,7 @@
+mujoco==3.6.0
+numpy>=2.0
+scipy>=1.13
+h5py>=3.10
+pillow>=10
+# nur zum Neubau der Szene aus den Quell-Assets:
+trimesh>=4.0

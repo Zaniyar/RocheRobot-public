@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-30",
+  "engine": "MuJoCo 3.6.0",
+  "platform": "Windows 11, CPU-Rendering via mujoco.Renderer",
+  "scripted_expert_with_images": {
+    "seeds": "0-2",
+    "success": 3,
+    "total": 3,
+    "seconds": 17.1,
+    "cameras": [
+      "head_cam",
+      "left_wrist_cam",
+      "right_wrist_cam"
+    ],
+    "resolution": "320x240",
+    "approx_mb_per_episode": 50,
+    "note": "mit Bereich x>=0,26 m aufgenommen (vor der Bereichsanpassung)"
+  },
+  "earlier_development_check": {
+    "seeds": "0-7",
+    "success": 7,
+    "total": 8,
+    "note": "Seed 3: Kit nahe der Tischvorderkante (x 0,269 m) umgestossen; als Fehlversuch markiert, nicht gespeichert"
+  },
+  "not_validated": [
+    "reale G1/Dex1-Parameter (Gains, Reibung, Masse)",
+    "Balance/stehender Roboter ohne fixiertes Becken",
+    "Sim-to-Real",
+    "gelernte Policy / VLA"
+  ],
+  "training_eligible_note": "Simulationsdemonstrationen eines Skripts; für Imitation Learning nutzbar, aber keine realen Robotdaten.",
+  "scripted_expert_state_only": {
+    "seeds": "100-139",
+    "kit_x_range": [
+      0.28,
+      0.37
+    ],
+    "kit_y_range": [
+      -0.08,
+      0.08
+    ],
+    "kit_yaw_range_rad": [
+      -3.1416,
+      3.1416
+    ],
+    "success": 38,
+    "total": 40,
+    "seconds": 107.6,
+    "failures": [
+      {
+        "seed": 127,
+        "success": false,
+        "steps": 419,
+        "saved": false,
+        "kit_start_x_y_yaw": [
+          0.2856,
+          -0.0465,
+          -1.2608
+        ]
+      },
+      {
+        "seed": 136,
+        "success": false,
+        "steps": 406,
+        "saved": false,
+        "kit_start_x_y_yaw": [
+          0.2915,
+          -0.0688,
+          -2.4097
+        ]
+      }
+    ]
+  },
+  "history_before_range_change": {
+    "seeds": "100-139",
+    "success": 36,
+    "total": 40,
+    "seconds": 111.5,
+    "failures": [
+      {
+        "seed": 111,
+        "success": false,
+        "steps": 414,
+        "saved": false,
+        "kit_start_x_y_yaw": [
+          0.2769,
+          -0.0529,
+          0.0375
+        ]
+      },
+      {
+        "seed": 113,
+        "success": false,
+        "steps": 417,
+        "saved": false,
+        "kit_start_x_y_yaw": [
+          0.2678,
+          -0.0559,
+          -2.232
+        ]
+      },
+      {
+        "seed": 127,
+        "success": false,
+        "steps": 458,
+        "saved": false,
+        "kit_start_x_y_yaw": [
+          0.2669,
+          -0.0465,
+          -1.2608
+        ]
+      },
+      {
+        "seed": 136,
+        "success": false,
+        "steps": 407,
+        "saved": false,
+        "kit_start_x_y_yaw": [
+          0.274,
+          -0.0688,
+          -2.4097
+        ]
+      }
+    ],
+    "kit_x_range": [
+      0.26,
+      0.37
+    ],
+    "note": "Historisch: alle 4 Fehlversuche bei x<0,28 m (Kit nah am Roboter vorne rechts). Daraufhin Zufallsbereich auf x>=0,28 m begrenzt."
+  }
+}

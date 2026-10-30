@@ -67,3 +67,7 @@ Eine mögliche Auswertung misst vollständige Aufgabe, Startlage, Loslassen im Z
 Nur ausdrücklich ausgewählte Technikdateien wurden übernommen; keine alte Git-Historie. Die Veröffentlichung verwendet keine persönlichen Backend-Adressen. Der vorhandene private Entwicklungsstand bleibt separat erhalten.
 
 Quellcode-/Asset-Prüfung, Syntaxcheck und lokaler Browser-Test sind dokumentiert in [PUBLICATION.md](PUBLICATION.md). Tests einer ursprünglichen Entwicklungsinstallation sind kein Nachweis für eine andere Isaac-/Cloud-Umgebung. Lizenztexte der mitgelieferten Drittkomponenten bleiben erhalten; für den eigenen Integrationscode ist noch keine allgemeine Open-Source-Lizenz festgelegt. Das Logo ist kein frei verwendbares Markenzeichen.
+
+## MuJoCo-Szene für Trainingsdaten (30.10.2026)
+
+`Simulation/mujoco-scene/`: stehender G1 mit Dex1 am Tisch, eine feste Box und ein Roche Reagent Kit, das bei jedem Reset an einer zufälligen Pose liegt. Dazu kommen Kopf- und Handgelenkkameras, ein skriptbasierter Pick-and-Place-Demonstrator und ein HDF5-Recorder für Imitation Learning bzw. VLA-Fine-Tuning. Die Szene ist eigenständig: `pip install -r requirements.txt`, dann `python view_scene.py --demo` oder `python collect_data.py`. Die Kit-Geometrie stammt aus dem Original-Roche-CAD und wurde vom Projektinhaber zur Veröffentlichung freigegeben. Die obige Aussage, dass kein Firmen-CAD mitgeliefert wird, gilt nur für die Isaac-Szenen. Details, Messwerte und Grenzen stehen in `Simulation/mujoco-scene/README.md`.
