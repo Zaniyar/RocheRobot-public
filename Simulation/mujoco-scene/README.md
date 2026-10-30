@@ -19,12 +19,26 @@ Physik: Zeitschritt 2 ms, Steuerung 50 Hz, elliptische Reibkegel, `noslip_iterat
 
 ## Schnellstart
 
-```bash
-python -m venv .venv
-.venv/Scripts/pip install -r requirements.txt        # macOS/Linux: .venv/bin/pip
-.venv/Scripts/python view_scene.py --demo             # Viewer: Demonstrator greift wiederholt
-.venv/Scripts/python collect_data.py --episodes 50 --out data/run01
+**Windows (PowerShell)**: im Ordner `Simulation\mujoco-scene` ausführen.
+
+```powershell
+.\Start-Viewer.ps1                       # legt beim ersten Mal .venv an; Demonstrator greift wiederholt
+.\Start-Viewer.ps1 -Free                 # freie Szene, Gelenke per Schieberegler
+.venv\Scripts\python.exe collect_data.py --episodes 50 --out data\run01
 ```
+
+Falls Skripte gesperrt sind: `powershell -ExecutionPolicy Bypass -File .\Start-Viewer.ps1`. Windows PowerShell 5.1 kennt `&&` nicht, deshalb Befehle einzeln eingeben.
+
+**macOS/Linux**:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python view_scene.py --demo
+.venv/bin/python collect_data.py --episodes 50 --out data/run01
+```
+
+Auf macOS muss der Viewer mit `mjpython` statt `python` gestartet werden (`.venv/bin/mjpython view_scene.py --demo`).
 
 Im Viewer setzt die Taste `R` eine neue Zufallspose für das Kit. Mit den Schiebereglern im Control-Panel lassen sich die Gelenke direkt bewegen.
 
