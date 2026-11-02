@@ -74,7 +74,9 @@ Die Daten sind reproduzierbar: Gleicher Seed ergibt dieselbe Kitpose. Standardm�
 
 Ein **skriptbasierter** Greifablauf, kein gelerntes Modell: Er fährt über das Kit, greift die schmale Seite, hebt an, fährt über die Box, setzt ab und öffnet. Er arbeitet nur mit Gelenk-Sollwerten, wie es auch ein Teleoperator tun würde, also ohne Teleportieren oder Festschweissen. Die IK erlaubt eine gekippte Hand, weil der G1 bei 0,75 m Tischhöhe senkrecht von oben nur einen kleinen Bereich erreicht.
 
-**Gemessen** (MuJoCo 3.6.0, Windows): 38 von 40 Zufallsepisoden erfolgreich (Seeds 100–139, ca. 1,5 s Rechenzeit pro Episode ohne Bilder). Details und Fehlversuche stehen in `validation.json`.
+**_unkorrekt (30.10.2026):** „38 von 40 Zufallsepisoden erfolgreich“ (Seeds 100–139). Diese Zählung prüft nur `kit_in_box()`. Das zählt auch ein umgekipptes Kit als Erfolg und erkennt nicht, wenn der Arm durch den Körper fährt, denn die Szene hat keine Selbstkollision.
+
+**Korrigiert (Nachmessung 2.11.2026, MuJoCo 3.6.0, 200 neue Startlagen, Seeds 7000–7199):** Das Skript legt das Kit nur in 11 von 200 Läufen sauber ab, also aufrecht und ohne Selbstkollision. In 183 Läufen schneidet der Arm den Körper (geprüft auf konvexen Hüllen der Meshes), in 23 liegt das Kit umgekippt in der Box. In keinem sauberen Lauf bleibt die Neigung durchgehend unter 5° (Arbeitsannahme, kein Roche-Wert); der Median der Spitzenneigung liegt bei 15,8°. **Mit diesem Skript erzeugte Episoden eignen sich deshalb nicht als Trainingsdaten.** Das Attribut `success` in den HDF5-Dateien bedeutet weiterhin nur „Kit in der Box“. Die Rechenzeit bleibt bei ca. 1,5 s pro Episode ohne Bilder; die ursprünglichen Läufe stehen in `validation.json`.
 
 ## Grenzen / bewusst offen
 

@@ -1,4 +1,9 @@
 {
+  "korrektur_unkorrekt": {
+    "datum": "2026-11-02",
+    "status": "Erfolgszahlen _unkorrekt",
+    "hinweis": "success zaehlt hier nur kit_in_box(): umgekippte Kits zaehlen mit, Selbstkollision wird nicht geprueft. Nachmessung auf Seeds 7000-7199: 11 von 200 sauber abgelegt, 183 mit Selbstkollision (konvexe Huellen), 23 umgekippt in der Box. Die Originalwerte bleiben als historische Messung erhalten. Auch training_eligible_note ist damit _unkorrekt: Diese Skriptdaten nicht als Trainingsdaten verwenden."
+  },
   "date": "2026-10-30",
   "engine": "MuJoCo 3.6.0",
   "platform": "Windows 11, CPU-Rendering via mujoco.Renderer",
@@ -28,7 +33,7 @@
     "Sim-to-Real",
     "gelernte Policy / VLA"
   ],
-  "training_eligible_note": "Simulationsdemonstrationen eines Skripts; für Imitation Learning nutzbar, aber keine realen Robotdaten.",
+  "training_eligible_note": "Simulationsdemonstrationen eines Skripts; fÃ¼r Imitation Learning nutzbar, aber keine realen Robotdaten.",
   "scripted_expert_state_only": {
     "seeds": "100-139",
     "kit_x_range": [
