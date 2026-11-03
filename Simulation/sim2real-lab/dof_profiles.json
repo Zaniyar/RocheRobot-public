@@ -1,0 +1,14 @@
+[
+ {"id":"right_arm","name":"Nur rechter Arm","hint":"Becken und Taille gesperrt, linker Arm ruht. Kleinstes Modell, am einfachsten zu trainieren.","status":"ready","sway_mm":0,
+  "groups":{"right_arm":true,"right_gripper":true,"left_arm":false,"left_gripper":false,"waist":false,"legs":false,"base":false}},
+ {"id":"both_arms","name":"Beide Arme, Torso gesperrt","hint":"Linker Arm gehört zum Aktionsraum. Der Demonstrator bewegt ihn nicht, Teleoperation könnte es.","status":"ready","sway_mm":0,
+  "groups":{"right_arm":true,"right_gripper":true,"left_arm":true,"left_gripper":true,"waist":false,"legs":false,"base":false}},
+ {"id":"standing_sway","name":"Stehend, Schwanken nachgestellt","hint":"Becken wird von aussen um 4 mm bewegt. Keine echte Balance, nur Störung für robustere Daten.","status":"emulated","sway_mm":4,
+  "groups":{"right_arm":true,"right_gripper":true,"left_arm":false,"left_gripper":false,"waist":false,"legs":false,"base":false}},
+ {"id":"waist_free","name":"Taille frei","hint":"Mehr Reichweite: Die Taille stellt sich vor dem Griff ein. 200 von 200 sanft abgelegt, auch die 42 sonst verweigerten. Becken dabei fixiert.","status":"ready","sway_mm":0,
+  "groups":{"right_arm":true,"right_gripper":true,"left_arm":false,"left_gripper":false,"waist":true,"legs":false,"base":false}},
+ {"id":"standing_balance","name":"Stehend mit Balance","hint":"Unitrees Laufpolicy hält das Gleichgewicht, der Arm gleicht die Körperbewegung aus. 100 von 200 sanft abgelegt, kein Sturz. Roboter schwankt rund 38 mm.","status":"emulated","sway_mm":0,
+  "groups":{"right_arm":true,"right_gripper":true,"left_arm":false,"left_gripper":false,"waist":false,"legs":true,"base":false}},
+ {"id":"walking","name":"Gehen und Greifen","hint":"Gehen läuft jetzt auch in MuJoCo, Drehen kaum. Herantreten und Greifen scheitert: Mit angehobenem Arm stoppt der Roboter nicht und drückt gegen den Tisch.","status":"missing","sway_mm":0,
+  "groups":{"right_arm":true,"right_gripper":true,"left_arm":true,"left_gripper":true,"waist":true,"legs":true,"base":true}}
+]

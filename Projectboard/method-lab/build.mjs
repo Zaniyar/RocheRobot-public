@@ -1,0 +1,13 @@
+import fs from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL,fileURLToPath} from 'node:url';
+const root=path.dirname(fileURLToPath(import.meta.url));
+const local=path.join(root,'node_modules');
+const modules=process.env.ROCHE_METHODLAB_MODULES||(existsSync(local)?local:'D:/RocheRuntime/MethodLabModules/node_modules');
+const {build}=await import(pathToFileURL(path.join(modules,'esbuild/lib/main.js')));
+await fs.mkdir(root+'/dist',{recursive:true});
+await build({entryPoints:[root+'/src/main.jsx'],outfile:root+'/dist/app.js',bundle:true,format:'esm',target:['es2022'],minify:true,jsx:'automatic',nodePaths:[modules],legalComments:'eof',define:{'process.env.NODE_ENV':'"production"'}});
+for(const name of ['index.html','style.css'])await fs.copyFile(root+'/'+name,root+'/dist/'+name);
+await fs.cp(root+'/public',root+'/dist',{recursive:true});
+console.log('Method Lab gebaut.');

@@ -1,0 +1,52 @@
+[
+ {
+  "id": "bottle_laboratory_b01",
+  "name": "Laborflasche",
+  "place": "table",
+  "size": [
+   0.010070326423102526,
+   0.01004039030522108,
+   0.05002313479781152
+  ]
+ },
+ {
+  "id": "container_vial_glass_a01",
+  "name": "Glasfläschchen",
+  "place": "table",
+  "size": [
+   0.032550666481256485,
+   0.032550666481256485,
+   0.08292618393898438
+  ]
+ },
+ {
+  "id": "medicine_b01",
+  "name": "Medikamentenpackung",
+  "place": "table",
+  "size": [
+   0.08031594753265381,
+   0.08040022477507591,
+   0.15000022947788239
+  ]
+ },
+ {
+  "id": "container_system_sterilising_a02",
+  "name": "Sterilisationsbehälter",
+  "place": "table",
+  "size": [
+   0.32783839114484714,
+   0.30133257806301117,
+   0.1603665143689351
+  ]
+ },
+ {
+  "id": "trolley_instrument_b01",
+  "name": "Instrumentenwagen",
+  "place": "floor",
+  "size": [
+   1.0555240101955312,
+   0.5784298479825898,
+   0.8894646763793327
+  ]
+ }
+]

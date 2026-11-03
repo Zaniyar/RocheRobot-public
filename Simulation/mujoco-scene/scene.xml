@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='utf8'?>
 <mujoco model="roche_g1_table_box_kit">
   <compiler angle="radian" inertiafromgeom="false" meshdir="assets" autolimits="true" />
   <option timestep=".002" integrator="implicitfast" iterations="60" noslip_iterations="5" cone="elliptic" />
@@ -194,7 +195,6 @@
                             <geom pos="0 0 0" quat="1 0 0 0" contype="0" conaffinity="0" group="1" rgba=".79 .82 .93 1" name="left_dex1_base_link_visual_0" type="mesh" mesh="Dex1_base_link" />
                             <geom pos="0 0 0" quat="1 0 0 0" contype="1" conaffinity="6" group="3" rgba=".8 .3 .2 .3" name="left_dex1_base_link_collision_0" type="mesh" mesh="Dex1_base_link" />
                             <site name="left_tcp" pos=".135 0 0" size=".004" rgba="1 .2 .2 .6" group="4" />
-                            <camera name="left_wrist_cam" pos=".03 0 .08" fovy="75" xyaxes="0 -1 0 0.342898 0 0.939373" />
                             <body name="left_dex1_finger_link_1" pos="0 0 0" quat="1 0 0 0">
                               <inertial mass="0.086783" fullinertia="2.5583e-05 1.4549e-05 3.6013e-05 5.1557e-07 -6.3178e-07 7.8542e-08" pos="0.073453 -0.011173 0.0086355" />
                               <joint name="left_dex1_finger_joint_1" type="slide" axis="0 -1 0" range="-0.02 0.0245" armature=".002" damping=".1" />
@@ -207,7 +207,7 @@
                               <geom pos="0 0 0" quat="1 0 0 0" contype="0" conaffinity="0" group="1" rgba=".79 .82 .93 1" name="left_dex1_finger_link_2_visual_0" type="mesh" mesh="Dex1_finger_link_2" />
                               <geom pos="0 0 0" quat="1 0 0 0" contype="1" conaffinity="6" group="3" rgba=".8 .3 .2 .3" name="left_dex1_finger_link_2_collision_0" type="mesh" mesh="dex1_col_2" />
                             </body>
-                          </body>
+                          <camera name="left_wrist_cam" pos="0.06 0 0.062" fovy="64" xyaxes="0 -1 0 0.605186 0 0.796084" /><geom name="left_wrist_cam_body" type="box" size=".0115 .021 .021" pos="0.0476607 0 0.0713804" quat="0.947651 0 0.319309 0" rgba=".1 .1 .11 1" contype="0" conaffinity="0" group="1" mass="0" /><geom name="left_wrist_cam_ring" type="cylinder" size=".012 .001" pos="0.0574525 0 0.0639366" quat="0.444305 0 0.895876 0" rgba=".6 .62 .65 1" contype="0" conaffinity="0" group="1" mass="0" /><geom name="left_wrist_cam_lens" type="cylinder" size=".009 .002" pos="0.0584078 0 0.0632104" quat="0.444305 0 0.895876 0" rgba=".02 .03 .05 1" contype="0" conaffinity="0" group="1" mass="0" /><geom name="left_wrist_cam_mount_foot" type="box" size=".022 .019 .003" pos="0.036 0 0.034" rgba=".6 .62 .65 1" contype="0" conaffinity="0" group="1" mass="0" /><geom name="left_wrist_cam_mount_arm" type="box" size=".003 .014 0.022205" pos="0.0372529 0 0.05617" quat="0.999602 0 0.0282222 0" rgba=".6 .62 .65 1" contype="0" conaffinity="0" group="1" mass="0" /></body>
                         </body>
                       </body>
                     </body>
@@ -255,7 +255,6 @@
                             <geom pos="0 0 0" quat="1 0 0 0" contype="0" conaffinity="0" group="1" rgba=".79 .82 .93 1" name="right_dex1_base_link_visual_0" type="mesh" mesh="Dex1_base_link" />
                             <geom pos="0 0 0" quat="1 0 0 0" contype="1" conaffinity="6" group="3" rgba=".8 .3 .2 .3" name="right_dex1_base_link_collision_0" type="mesh" mesh="Dex1_base_link" />
                             <site name="right_tcp" pos=".135 0 0" size=".004" rgba="1 .2 .2 .6" group="4" />
-                            <camera name="right_wrist_cam" pos=".03 0 .08" fovy="75" xyaxes="0 -1 0 0.342898 0 0.939373" />
                             <body name="right_dex1_finger_link_1" pos="0 0 0" quat="1 0 0 0">
                               <inertial mass="0.086783" fullinertia="2.5583e-05 1.4549e-05 3.6013e-05 5.1557e-07 -6.3178e-07 7.8542e-08" pos="0.073453 -0.011173 0.0086355" />
                               <joint name="right_dex1_finger_joint_1" type="slide" axis="0 -1 0" range="-0.02 0.0245" armature=".002" damping=".1" />
@@ -268,7 +267,7 @@
                               <geom pos="0 0 0" quat="1 0 0 0" contype="0" conaffinity="0" group="1" rgba=".79 .82 .93 1" name="right_dex1_finger_link_2_visual_0" type="mesh" mesh="Dex1_finger_link_2" />
                               <geom pos="0 0 0" quat="1 0 0 0" contype="1" conaffinity="6" group="3" rgba=".8 .3 .2 .3" name="right_dex1_finger_link_2_collision_0" type="mesh" mesh="dex1_col_2" />
                             </body>
-                          </body>
+                          <camera name="right_wrist_cam" pos="0.06 0 0.062" fovy="64" xyaxes="0 -1 0 0.605186 0 0.796084" /><geom name="right_wrist_cam_body" type="box" size=".0115 .021 .021" pos="0.0476607 0 0.0713804" quat="0.947651 0 0.319309 0" rgba=".1 .1 .11 1" contype="0" conaffinity="0" group="1" mass="0" /><geom name="right_wrist_cam_ring" type="cylinder" size=".012 .001" pos="0.0574525 0 0.0639366" quat="0.444305 0 0.895876 0" rgba=".6 .62 .65 1" contype="0" conaffinity="0" group="1" mass="0" /><geom name="right_wrist_cam_lens" type="cylinder" size=".009 .002" pos="0.0584078 0 0.0632104" quat="0.444305 0 0.895876 0" rgba=".02 .03 .05 1" contype="0" conaffinity="0" group="1" mass="0" /><geom name="right_wrist_cam_mount_foot" type="box" size=".022 .019 .003" pos="0.036 0 0.034" rgba=".6 .62 .65 1" contype="0" conaffinity="0" group="1" mass="0" /><geom name="right_wrist_cam_mount_arm" type="box" size=".003 .014 0.022205" pos="0.0372529 0 0.05617" quat="0.999602 0 0.0282222 0" rgba=".6 .62 .65 1" contype="0" conaffinity="0" group="1" mass="0" /></body>
                         </body>
                       </body>
                     </body>

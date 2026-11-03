@@ -1,0 +1,88 @@
+[
+ {
+  "id": "gentle",
+  "group": "Nachher: sanfter Griff",
+  "title": "Sanft, Nominal",
+  "seed": 2002,
+  "params": {},
+  "note": "Sanfter Griff, Startlage ohne Störung."
+ },
+ {
+  "id": "gentle_b",
+  "group": "Nachher: sanfter Griff",
+  "title": "Sanft, andere Startlage",
+  "seed": 7003,
+  "params": {},
+  "note": "Sanfter Griff, andere Startlage, Arm bleibt vom Körper weg."
+ },
+ {
+  "id": "scripted",
+  "group": "Vorher: altes Skript",
+  "title": "Altes Skript, gekippt",
+  "seed": 2002,
+  "params": {
+   "expert": "scripted"
+  },
+  "note": "Altes Skript: stark geneigt, und der Arm dringt in den Körper ein. Fehlerbeispiel."
+ },
+ {
+  "id": "topple",
+  "group": "Vorher: altes Skript",
+  "title": "Altes Skript, Umkipper",
+  "seed": 2005,
+  "params": {
+   "expert": "scripted"
+  },
+  "note": "Altes Skript: Kit kippt um, der Arm dringt in den Körper ein. Fehlerbeispiel."
+ },
+ {
+  "id": "height",
+  "group": "Störfälle: sanfter Griff",
+  "title": "Roboter 15 mm tiefer",
+  "seed": 2002,
+  "params": {
+   "base_z": -0.015
+  },
+  "note": "Roboter 15 mm tiefer: Griff- und Ablagefehler heben sich auf, abgelegt."
+ },
+ {
+  "id": "sway",
+  "group": "Störfälle: sanfter Griff",
+  "title": "Körper schwankt 8 mm",
+  "seed": 12008,
+  "params": {
+   "sway": 0.008
+  },
+  "note": "Becken schwankt um 8 mm: Griff misslingt. Grösstes Einzelrisiko."
+ },
+ {
+  "id": "joint",
+  "group": "Störfälle: sanfter Griff",
+  "title": "Gelenke 2° falsch kalibriert",
+  "seed": 12003,
+  "params": {
+   "joint_offset": 0.0349066
+  },
+  "note": "Nullpunktfehler 2° je Gelenk: Griff misslingt."
+ },
+ {
+  "id": "percept",
+  "group": "Störfälle: sanfter Griff",
+  "title": "Kit-Position 20 mm falsch",
+  "seed": 12018,
+  "params": {
+   "percept": 0.02
+  },
+  "note": "Wahrnehmung liegt 20 mm daneben, Kit kippt."
+ },
+ {
+  "id": "basexy",
+  "group": "Störfälle: sanfter Griff",
+  "title": "Roboter 25 mm versetzt",
+  "seed": 12001,
+  "params": {
+   "base_xy": 0.025
+  },
+  "note": "Roboter steht 25 mm versetzt: Griff misslingt."
+ }
+]

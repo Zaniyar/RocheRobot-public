@@ -1,0 +1,3 @@
+3D-Modelle aus NVIDIA SimReady Assets, https://huggingface.co/datasets/nvidia/simready-assets
+Lizenz: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+Geändert: von OpenUSD nach GLB gewandelt, zentriert, Texturen verkleinert.

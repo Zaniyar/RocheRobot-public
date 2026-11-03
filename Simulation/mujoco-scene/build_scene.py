@@ -64,6 +64,28 @@ def copy_assets():
         parts.append(out.name)
     return parts
 
+def wrist_camera(body, side):
+    """Handkamera auf dem Greifer: Halter, Gehäuse, Linse. Das G1-Modell enthält keine; Lage und Form sind Annahmen,
+    am echten Roboter nachmessen. Bildwinkel wie Unitrees Isaac-Vorgabe. Nur Optik: keine Kollision, keine Masse."""
+    p, lens = .65, np.array([.06, 0, .062])
+    view = np.array([np.cos(p), 0, -np.sin(p)])
+    tilt = fmt([np.cos(p / 2), 0, np.sin(p / 2), 0])
+    a = np.arctan2(view[0], view[2])
+    axis = fmt([np.cos(a / 2), 0, np.sin(a / 2), 0])         # Zylinderachse entlang der Blickrichtung
+    optic = dict(contype='0', conaffinity='0', group='1', mass='0')
+    E.SubElement(body, 'camera', name=side + '_wrist_cam', pos=fmt(lens), fovy='64', xyaxes=fmt([0, -1, 0, np.sin(p), 0, np.cos(p)]))
+    housing = lens - .004 * view - .0115 * view
+    E.SubElement(body, 'geom', name=side + '_wrist_cam_body', type='box', size='.0115 .021 .021', pos=fmt(housing), quat=tilt, rgba='.1 .1 .11 1', **optic)
+    E.SubElement(body, 'geom', name=side + '_wrist_cam_ring', type='cylinder', size='.012 .001', pos=fmt(lens - .0032 * view), quat=axis, rgba='.6 .62 .65 1', **optic)
+    E.SubElement(body, 'geom', name=side + '_wrist_cam_lens', type='cylinder', size='.009 .002', pos=fmt(lens - .002 * view), quat=axis, rgba='.02 .03 .05 1', **optic)
+    # Halter: Fussplatte auf dem Greifer, Steg zur Rückseite des Gehäuses
+    foot, back = np.array([.036, 0, .034]), housing - .0115 * view
+    E.SubElement(body, 'geom', name=side + '_wrist_cam_mount_foot', type='box', size='.022 .019 .003', pos=fmt(foot), rgba='.6 .62 .65 1', **optic)
+    span = back - foot
+    b = np.arctan2(span[0], span[2])
+    E.SubElement(body, 'geom', name=side + '_wrist_cam_mount_arm', type='box', size='.003 .014 ' + f'{np.linalg.norm(span) / 2:.5g}', pos=fmt((foot + back) / 2),
+                 quat=fmt([np.cos(b / 2), 0, np.sin(b / 2), 0]), rgba='.6 .62 .65 1', **optic)
+
 def build():
     parts = copy_assets()
     urdf = E.parse(ASSETS / 'g1/g1.urdf').getroot()
@@ -154,9 +176,7 @@ def build():
         if name.endswith('_dex1_base_link'):
             side = name.split('_')[0]
             E.SubElement(body, 'site', name=side + '_tcp', pos='.135 0 0', size='.004', rgba='1 .2 .2 .6', group='4')
-            # Handgelenkkamera, blickt entlang der Finger (+x der Hand)
-            E.SubElement(body, 'camera', name=side + '_wrist_cam', pos='.03 0 .08', fovy='75',
-                         xyaxes=fmt([0, -1, 0, np.sin(.35), 0, np.cos(.35)]))
+            wrist_camera(body, side)
         if name == 'torso_link':
             # D435-Kopfkamera gemäss URDF (d435_joint), Neigung 0,83 rad nach unten
             p = .8307767239493009
